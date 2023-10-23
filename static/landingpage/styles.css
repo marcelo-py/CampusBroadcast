@@ -1,0 +1,238 @@
+.sectionBanner {
+    margin: 60px 0;
+}
+
+.areaBanner {
+    width: 1280px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.areaBanner .logoBtnInscreva {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 245px;
+    max-width: 100%;
+}
+
+.areaBanner .logoBtnInscreva img {
+    max-width: 100%;
+}
+
+.areaBanner .logoBtnInscreva a {
+    flex: 1;
+    background-color: #4F52FF;
+    color: #FFF;
+    padding: 8px;
+    font-size: 25px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.205);
+}
+
+form.login {
+    display: flex;
+    flex-direction: column;
+    width: 413px;
+    max-width: 100%;
+    gap: 5px;
+}
+
+form.login h2 {
+    margin-bottom: 16px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 28px;
+}
+
+form.login input,
+button {
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.205);
+    font-weight: normal;
+}
+
+form.login input {
+    background: #e4e4e433;
+}
+
+form.login a {
+    text-decoration: underline;
+    color: #57AAD9;
+    font-size: 18px;
+}
+
+form.login button {
+    background-color: #4F52FF;
+    color: #FFF;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+/* Functions */
+.sectionFunctions {
+    width: 1280px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.container-functions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.container-functions li {
+    height: 314px;
+    background: #e4e4e433;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.205);
+    padding: 10px;
+    border-radius: 10px;
+    flex: 1 1 280px;
+    transition: 0.4s;
+}
+
+.container-functions li:hover {
+    transform: translateY(-19px);
+}
+
+.container-functions li img {
+    width: 81px;
+    height: 81px;
+}
+
+.container-functions li h2 {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container-functions li#function1 h2 {
+    color: #18193F;
+}
+
+.container-functions li#function2 h2 {
+    color: #3D9AE2;
+}
+
+.container-functions li#function3 h2 {
+    color: #414141;
+}
+
+.container-functions li p {
+    font-size: 15px;
+    text-align: center;
+}
+
+/* Objetivos */
+
+.sectionObjective {
+    margin-top: 60px;
+}
+
+.area-objective {
+    width: 1280px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.area-objective article {
+    width: 738px;
+    max-width: 100%;
+}
+
+.area-objective h2 {
+    font-size: 30px;
+    margin-bottom: 24px;
+}
+
+.area-objective h2 span {
+    color: #4F52FF;
+}
+
+.area-objective .container-list-bjective {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.area-objective .container-list-bjective li {
+    list-style: inside;
+    font-size: 17px;
+    color: #18193F;
+    text-align: justify;
+}
+
+.area-objective .container-list-bjective li span {
+    color: #CF4F64;
+    font-weight: bold;
+}
+
+.area-objective .img-area {
+    width: 445px;
+}
+
+.area-objective .img-area img {
+    max-width: 100%;
+}
+
+
+/*Foooter*/
+footer {
+    margin: 60px 0 30px 0;
+}
+
+footer .area-footer {
+    width: 1280px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+footer .area-footer >p{
+    font-size: 19px;
+}
+
+.navBar-footer {
+    display: flex;
+    width: 290px;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.navBar-footer img {
+    width: 35px;
+    height: 35px;
+    display: block;
+}
+
+.navBar-footer a {
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.navBar-footer a:hover {
+    background: #8eecc57e;
+    border: 1px solid rgba(0, 0, 0, 0.205);
+}

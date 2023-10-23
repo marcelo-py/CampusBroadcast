@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}Landing Page{% endblock %}
+{% block 'styles' %}<link rel="stylesheet" href="{% static 'landingpage/styles.css' %}">{% endblock %}
+
+{% block 'conteudo' %}
+
+    <header>
+        <div class="area-header">
+            <h1 class="logoName">Campus<span>Broadcast</span></h1>
+        </div>
+    </header>
+
+    <section class="sectionBanner">
+        <div class="areaBanner">
+            <div class="logoBtnInscreva">
+                <img src="{%static 'landingpage/imagens/logoCampus.svg'%}">
+                <a href="#">Inscreva-se</a>
+            </div>
+
+            <form action="#" method="post" class="login">
+                {%csrf_token%}
+                <h2>Entrar</h2>
+    
+                <input type="email" placeholder="Email" name="email" id="" aria-label="Email">
+            
+                <input type="password" placeholder="Senha" name="email" id="" aria-label="Senha">
+                <a href="#">Esqueci a senha</a>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="sectionFunctions">
+        <ul class="container-functions">
+            <li id="function1">
+                <img src="{%static 'landingpage/imagens/alerta_relogio.png'%}" alt="img">
+                <h2>Alerte sobre eventos</h2>
+                <p>Receba alertas sobre conferências, palestras e atividades no nosso campus</p>
+            </li>
+
+            <li id="function2">
+                <img src="{%static 'landingpage/imagens/alertasforusuario.png'%}" alt="img">
+                <h2>Receba Alertas</h2>
+                <p>Mantenha-se atualizado com notícias e informações relevantes para a nossa comunidade acadêmica.</p>
+            </li>
+
+            <li id="function3">
+                <img src="{%static 'landingpage/imagens/usercomunacation.png'%}" alt="img">
+                <h2>Converse e Interaja</h2>
+                <p>Use nossos chats para se comunicar com colegas, professores e grupos de interesse. Participe da conversa!</p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="sectionObjective">
+        <div class="area-objective">
+            <article>
+                <h2>Nosso <span>Objetivo</span></h2>
+                <ul class="container-list-bjective">
+                    <li>
+                        <span>Aumentar o Engajamento da Comunidade:</span> 
+                        Fomentar a participação ativa dos alunos, professores e funcionários, 
+                        promovendo o envolvimento em eventos, discussões e atividades no campus.
+                    </li>
+
+                    <li>
+                        <span>Melhorar a Comunicação:</span> 
+                        Aperfeiçoar a comunicação interna no campus, assegurando que informações relevantes, 
+                        anúncios e atualizações estejam disponíveis para todos os membros da comunidade acadêmica.
+                    </li>
+
+                    <li>
+                        <span>Promover Eventos e Atividades:</span> 
+                        Facilitar a divulgação de eventos e atividades no campus e aumentar a participação 
+                        nesses eventos.
+                    </li>
+
+                    <li>
+                        <span>Facilitar a Segmentação de Mensagens:</span> 
+                        Capacitar a administração para direcionar mensagens e anúncios específicos para 
+                        grupos ou departamentos específicos quando necessário.
+                    </li>
+
+                    <li>
+                        <span>Fomentar a Interação e Networking:</span> 
+                        Promover interações significativas entre alunos, professores e funcionários, além de 
+                        facilitar oportunidades de networking.
+                    </li>
+
+                    <li>
+                        <span>Melhorar a Participação em Eventos:</span> 
+                        Aumentar o número de inscrições e participações em eventos, como conferências, 
+                        palestras e workshops.
+                    </li>
+
+                    <li>
+                        <span>Promover uma Cultura de Campus Ativa:</span> 
+                        Fomentar uma cultura de envolvimento ativo no campus, onde os membros da comunidade 
+                        acadêmica estejam cientes de eventos, compartilhem ideias e participem ativamente das atividades.
+                    </li>
+                </ul>
+            </article>
+            <div class="img-area">
+                <img src="{%static 'landingpage/imagens/objective.svg'%}" alt="objetivo">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="area-footer">
+            <p>&copy; Marcelo</p>
+            <nav class="navBar-footer">
+                <a href="https://www.instagram.com/marcelo.ftp/" target="_blank"><img src="{%static 'landingpage/imagens/instagram_icon.svg'%}" alt="instagram"></a>
+                <a href="https://www.linkedin.com/in/marcelo-araujo-2026841b4/" target="_blank"><img src="{%static 'landingpage/imagens/linkedin_icon.svg'%}" alt="linkedin"></a>
+                <a href="marcelo.araujo.999s@gmail.com" target="_blank"><img src="{%static 'landingpage/imagens/mail_icon.svg'%}" alt="email"></a>
+                <a href="https://github.com/marcelo-py" target="_blank"><img src="{%static 'landingpage/imagens/github_icon.svg'%}" alt="github"></a>
+            </nav>
+        </div>
+    </footer>
+{% endblock %}

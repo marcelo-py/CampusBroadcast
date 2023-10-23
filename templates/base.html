@@ -1,0 +1,21 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% include 'parciais/__head.html' %}
+    <title>{% block 'titulo' %}{% endblock %}</title>
+    {% block 'styles' %} {% endblock %}
+    <link rel="stylesheet" href="{% static 'global_styles.css' %}">
+    <style>
+        @font-face {
+            font-family: 'Rubik';
+            src: url("{%static 'Rubik-VariableFont_wght.ttf'%}") format('truetype');
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    {% block 'conteudo' %}
+    {% endblock %}
+</body>
+</html>
