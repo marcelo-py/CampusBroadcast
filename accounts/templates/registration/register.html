@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+
+{%block 'titulo'%}Cadastrar-se{%endblock%}
+
+{%block 'conteudo'%}
+
+    <form action="" method="POST">
+        {%csrf_token%}
+
+        <div>
+            <label for="id_email">E-mail</label>
+            {{form.email}}
+        </div>
+
+        <div>
+            <label for="id_first_name">Nome</label>
+            {{form.first_name}}
+        </div>
+
+        <div>
+            <label for="id_last_name">Sobrenome</label>
+            {{form.last_name}}
+        </div>
+        
+        <button type="submit">Cadastrar</button>
+    </form>
+    
+{%endblock%}
