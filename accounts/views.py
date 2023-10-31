@@ -7,20 +7,30 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            email = form.cleaned_data.get('email')
-            password = form.cleaned_data.get('password')
-            user = authenticate(email=email, password=password)
-            login(request, user)
+
             return redirect('home')  # Redireciona para a página inicial
         
     else:
         form = RegistrationForm()
+        
     return render(request, 'registration/register.html', {'form': form})
 
 
 def login_view(request):
-    pass
-
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        user = authenticate(request, email=email, password=password)
+        login(request, user)
+        return redirect('accounts:feed_index')
+    
 
 def logout_view(request):
-    pass
+    logout(request)
+
+    return redirect('landingpage:landing_page')
+
+#  para a navegação Logado
+def feed_view(request):
+
+    return render(request, 'navigation/index.html')

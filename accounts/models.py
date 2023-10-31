@@ -1,8 +1,9 @@
 from django.db import models
-
+from django.utils import timezone
 
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, Group, Permission
+from django.contrib.postgres.fields import ArrayField
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -45,3 +46,22 @@ class CustomUser(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return True
+
+
+class Palestrante(models.Model):
+    first_name = models.CharField(max_length=15)
+    last_name = models.CharField(max_length=15)
+    training = models.CharField(max_length=20)
+
+    date_add = models.DateTimeField(default=timezone.now)
+
+
+class Evento(models.Model):
+    titulo = models.CharField(max_length=120)
+    local = models.CharField(max_length=20)
+    data_evento = models.DateTimeField(verbose_name='Dia e horário do evento')
+
+    palestrantes = models.ManyToManyField(Palestrante, related_name='palestrantes_principais')
+    anunciado_por = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+
+    data_post = models.DateTimeField(default=timezone.now)

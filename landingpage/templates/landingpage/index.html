@@ -19,13 +19,13 @@
                 <a href="{%url 'accounts:register'%}">Inscreva-se</a>
             </div>
 
-            <form action="#" method="post" class="login">
+            <form action="{%url 'accounts:login'%}" method="POST" class="login">
                 {%csrf_token%}
                 <h2>Entrar</h2>
     
                 <input type="email" placeholder="Email" name="email" id="" aria-label="Email">
             
-                <input type="password" placeholder="Senha" name="email" id="" aria-label="Senha">
+                <input type="password" placeholder="Senha" name="password" id="" aria-label="Senha">
                 <a href="#">Esqueci a senha</a>
                 <button type="submit">Entrar</button>
             </form>
