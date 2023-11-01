@@ -1,0 +1,27 @@
+.sectionPostsAuncios{
+    width: 1280px;
+    max-width: 100%;
+    margin: 60px auto;
+    background-color: rgba(0, 255, 255, 0.315);
+}
+
+.eventContainer{
+    width: 845px;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    border: 1px solid black;
+}
+
+.eventContainer .area-banner{
+    background-color: rgba(198, 226, 43, 0.281);
+    height: 470px;
+    flex: 0 0 400px;
+    max-width: 100%;
+}
+
+.eventContainer .detailsContainer{
+    padding: 30px;
+    flex: 0 0 414px;
+    max-width: 100%;
+}

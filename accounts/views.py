@@ -1,6 +1,7 @@
 from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
 from .forms import RegistrationForm
+from .models import Evento
 
 def register(request):
     if request.method == 'POST':
@@ -32,5 +33,5 @@ def logout_view(request):
 
 #  para a navegação Logado
 def feed_view(request):
-
-    return render(request, 'navigation/index.html')
+    obj_evetntos = Evento.objects.all()
+    return render(request, 'navigation/index.html', {'eventos': obj_evetntos})

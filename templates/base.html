@@ -4,7 +4,7 @@
 <head>
     {% include 'parciais/__head.html' %}
     <title>{% block 'titulo' %}{% endblock %}</title>
-    {% block 'styles' %} {% endblock %}
+    
     <link rel="stylesheet" href="{% static 'global_styles.css' %}">
     <style>
         @font-face {
@@ -12,7 +12,49 @@
             src: url("{%static 'Rubik-VariableFont_wght.ttf'%}") format('truetype');
             font-weight: normal;
         }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Rubik';
+            text-decoration: none;
+            list-style: none;
+        }
+
+        h2, h3, h4{
+            color: #18193F;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            margin: 0 10px;
+        }
+
+        header h1.logoName {
+            font-size: 28px;
+            color: #00A859;
+        }
+
+        header h1.logoName span {
+            color: #ED3237;
+        }
+
+        header .area-header{
+            padding: 12px 0;
+            width: 1280px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+
+        @media (max-width: 320px){
+            header h1.logoName {
+                font-size: 9vw;
+            }
+        }
     </style>
+    {% block 'styles' %} {% endblock %}
 </head>
 <body>
     {% block 'conteudo' %}
