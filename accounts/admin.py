@@ -3,15 +3,15 @@ from .models import CustomUser, Palestrante, Evento
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name')
+    list_display = ('id', 'first_name', 'last_name')
 
 
 class PalestranteAdmin(admin.ModelAdmin):
-    list_display = ('first_name',)
+    list_display = ('id', 'first_name',)
 
 
 class EventoAdmin(admin.ModelAdmin):
-    list_display = ('titulo', )
+    list_display = ('id', 'titulo', )
 
 
 admin.site.register(CustomUser, UserAdmin)

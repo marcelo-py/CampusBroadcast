@@ -26,9 +26,11 @@ class CustomUser(AbstractBaseUser):
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
+    training = models.CharField(max_length=20, verbose_name='formação', blank=True, null=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)  # Adicione is_superuser como um campo
+    is_palestrante = models.BooleanField(default=False)
 
     #  Para evitar os conflitos
 
@@ -50,18 +52,24 @@ class CustomUser(AbstractBaseUser):
 class Palestrante(models.Model):
     first_name = models.CharField(max_length=15)
     last_name = models.CharField(max_length=15)
-    training = models.CharField(max_length=20)
-
+    training = models.CharField(max_length=20, verbose_name='formação')
+    is_visitant = models.BooleanField(default=False)
+    photo = models.ImageField('foto', upload_to='', blank=True, null=True)
     date_add = models.DateTimeField(default=timezone.now)
 
 
 class Evento(models.Model):
     titulo = models.CharField(max_length=120)
-    decription = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
     local = models.CharField(max_length=20)
-    data_evento = models.DateTimeField(verbose_name='Dia e horário do evento')
-
-    palestrantes = models.ManyToManyField(Palestrante, related_name='palestrantes_principais')
+    inicio = models.DateTimeField(verbose_name='Dia e horário do evento')
+    fim = models.DateTimeField(verbose_name='Dia e horário do evento')
+    organizadores =models.ManyToManyField(CustomUser, related_name='organizadores_evento')
     anunciado_por = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, blank=True)
 
+    is_fixed = models.BooleanField(default=False)
     data_post = models.DateTimeField(default=timezone.now)
+    
+
+class PalestranteParaEvento(models.Model):
+    pass

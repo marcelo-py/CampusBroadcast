@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
+from accounts.models import Palestrante
+
 
 def landing_page(request):
     if request.user.is_authenticated:
-        redirect('accounts:feed_index')
+        return redirect('accounts:feed_index')
 
-    return render(request, 'landingpage/index.html')
+    objects_palestrantes = Palestrante.objects.all()
+    return render(request, 'landingpage/index.html', {'palestrantes': objects_palestrantes})

@@ -14,28 +14,9 @@
         </div>
     </header>
 
-    <h1>Você está logado.</h1>
+    <h1>Você está logado como {{request.user.first_name}}</h1>
     <a href="{%url 'accounts:logout'%}">SAIR</a>
 
 
-    <section class="sectionPostsAuncios">
-        {%for evento in eventos%}
-            <article class="eventContainer">
-                <div class="area-banner">
 
-                </div>
-
-                <div class="detailsContainer">
-                    <header>
-                        <div class="user-details">
-                            <h2>{{evento.anunciado_por.first_name}}</h2>
-                        </div>
-                    </header>
-                    <h3>{{evento.titulo}}</h3>
-                    
-                </div>
-            </article>
-        {%endfor%}
-
-    </section>
 {%endblock%}

@@ -54,6 +54,28 @@
         </ul>
     </section>
 
+    <section class="sectionPalestrantes">
+        <div class="area-palestrantes">
+            <h2>Nossos palestrantes</h2>
+            <ul class="palestranteContainer">
+                {%for palestrante in palestrantes%}
+                    <li>
+                        <div class="area-img-palestrante">
+                            {%if palestrante.photo%}
+                                <img src="{{palestrante.photo.url}}" alt="">
+                            {%endif%}
+                        </div>
+                        <h3>{{palestrante.first_name}} {{palestrante.last_name}}</h3>
+                        <p>{{palestrante.training}}</p>
+                        {%if palestrante.is_visitant%}
+                            <span>Visitante</span>
+                        {%endif%}
+                    </li>
+                {%endfor%}
+            </ul>
+        </div>
+    </section>
+
     <section class="sectionObjective">
         <div class="area-objective">
             <article>
