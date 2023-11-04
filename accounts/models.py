@@ -62,14 +62,30 @@ class Evento(models.Model):
     titulo = models.CharField(max_length=120)
     description = models.TextField(blank=True, null=True)
     local = models.CharField(max_length=20)
-    inicio = models.DateTimeField(verbose_name='Dia e horário do evento')
-    fim = models.DateTimeField(verbose_name='Dia e horário do evento')
+    data_inicio = models.DateField(verbose_name='Data inicio do evento', blank=True, null=True)
+    data_fim = models.DateField(verbose_name='da final do evento')
     organizadores =models.ManyToManyField(CustomUser, related_name='organizadores_evento')
     anunciado_por = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, blank=True)
+    picture = models.ImageField('foto', upload_to='eventos', blank=True, null=True)
 
     is_fixed = models.BooleanField(default=False)
     data_post = models.DateTimeField(default=timezone.now)
     
 
-class PalestranteParaEvento(models.Model):
-    pass
+class DatasParaEvento(models.Model):
+    data = models.DateField(verbose_name='Dia para evento')
+    evento = models.ForeignKey(Evento, on_delete=models.CASCADE)
+    atividades = models.ManyToManyField('Atividade', related_name='atividades_para_data')  # é preciso adicionar antes uma atividade
+
+    data_adicionado = models.DateTimeField(default=timezone.now)
+
+
+class Atividade(models.Model):
+    nome = models.CharField(max_length=120)
+    membros = models.ManyToManyField(CustomUser, related_name='membros_evento')  # O orgaizador precisa ter uma conta para ser adicionado 
+
+    # Para evento
+    palestrantes = models.ManyToManyField(Palestrante, related_name='atividade_palestrante')  # é preciso adicionar o palestrante antes 
+    evento = models.ForeignKey(Evento, on_delete=models.CASCADE, blank=True, null=True)  # não se trata apenas de atividades para evento 
+
+

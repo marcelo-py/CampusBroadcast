@@ -237,7 +237,6 @@ form.login button {
     list-style: inside;
     font-size: 17px;
     color: #18193F;
-    text-align: justify;
 }
 
 .area-objective .container-list-bjective li span {
@@ -300,8 +299,6 @@ footer .area-footer>p {
     border: 1px solid rgba(0, 0, 0, 0.205);
 }
 
-
-
 @media (max-width: 700px) {
     .areaBanner {
         justify-content: center;
@@ -343,3 +340,4 @@ footer .area-footer>p {
         display: none;
     }
 }
+

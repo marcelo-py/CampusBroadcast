@@ -33,5 +33,5 @@ def logout_view(request):
 
 #  para a navegação Logado
 def feed_view(request):
-    obj_evetntos = Evento.objects.all()
-    return render(request, 'navigation/index.html', {'eventos': obj_evetntos})
+    obj_evetntos = Evento.objects.filter(is_fixed=True).first()
+    return render(request, 'navigation/index.html', {'evento': obj_evetntos})

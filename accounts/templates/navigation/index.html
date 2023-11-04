@@ -13,10 +13,46 @@
             <h1 class="logoName">Campus<span>Broadcast</span></h1>
         </div>
     </header>
-
-    <h1>Você está logado como {{request.user.first_name}}</h1>
     <a href="{%url 'accounts:logout'%}">SAIR</a>
 
 
+    <section class="sectionEventoPrincipal">
+        <div class="evento-principal-area">
+            <div class="info-left">
+                <ul class="contagemRegressiva">
+                    <li>
+                        90 <span>Dia</span>
+                    </li>
+                    <li>
+                        9 <span>Hor</span>
+                    </li>
+                    <li>
+                        20 <span>Min</span>
+                    </li>
+                    <li>
+                        90 <span>Seg</span>
+                    </li>
+                </ul>
 
+                <div class="banner-detalhes">
+                    <h2>{{evento.titulo}}</h2>
+                    <p>{{evento.description}}</p>
+
+                    {% if evento.data_inicio == evento.data_fim %}
+                        <h3>{{ evento.data_inicio|date:"j \d\e F" }}</h3>
+                    {% else %}
+                        <h3>De {{ evento.data_inicio|date:"j" }} a {{ evento.data_fim|date:"j \d\e F" }}</h3>
+                    {% endif %}
+                </div>
+
+                <a href="#" class="btn-comparecer">Marcar presença</a>
+            </div>
+
+            {%if evento.picture%}
+                <div class="area-img-banner">
+                    <img src="{{evento.picture.url}}" alt="banner Imagem">
+                </div>
+            {%endif%}
+        </div>
+    </section>
 {%endblock%}
