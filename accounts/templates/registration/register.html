@@ -1,6 +1,10 @@
 {%extends 'base.html'%}
+{%load static%}
 
 {%block 'titulo'%}Cadastrar-se{%endblock%}
+
+{% block 'styles' %}<link rel="stylesheet" href="{% static 'register/styles.css' %}">{% endblock %}
+
 
 {%block 'conteudo'%}
 
@@ -8,20 +12,40 @@
         {%csrf_token%}
 
         <div>
+            {{ form.email.errors }}
             <label for="id_email">E-mail</label>
             {{form.email}}
         </div>
 
         <div>
+            {{ form.first_name.errors }}
             <label for="id_first_name">Nome</label>
             {{form.first_name}}
         </div>
 
         <div>
+            {{ form.last_name.errors }}
             <label for="id_last_name">Sobrenome</label>
             {{form.last_name}}
         </div>
+
+        <div>
+            {{ form.training.errors }}
+            <label for="id_training">Formação</label>
+            {{ form.training }}
+        </div>
+
+        <div>
+            {{ form.password.errors }}
+            <label for="id_password">Senha</label>
+            {{form.password}}
+        </div>
         
+        <div>
+            {{ form.password_confirm.errors }}
+            <label for="id_password">Confirme a Senha</label>
+            {{form.password_confirm}}
+        </div>
         <button type="submit">Cadastrar</button>
     </form>
     

@@ -9,7 +9,7 @@ def register(request):
         if form.is_valid():
             form.save()
 
-            return redirect('home')  # Redireciona para a página inicial
+            return redirect('landingpage:landing_page')  # Redireciona para a página inicial
         
     else:
         form = RegistrationForm()
