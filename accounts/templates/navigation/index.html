@@ -15,7 +15,6 @@
     </header>
     <a href="{%url 'accounts:logout'%}">SAIR</a>
 
-
     <section class="sectionEventoPrincipal">
         <div class="evento-principal-area">
             <div class="info-left">
@@ -53,6 +52,68 @@
                     <img src="{{evento.picture.url}}" alt="banner Imagem">
                 </div>
             {%endif%}
+
+        </div>
+    </section>
+
+    <section class="sectionDiasAtividade">
+        <nav>
+            <ul class="list-days">
+                <li>1 Dezembro</li>
+                <li>2 Dexembro</li>
+                <li>3 Dezembro</li>
+            </ul>
+        </nav>
+        <div class="atividades-evento-container">
+            <article class="atividade-detalhes">
+                <div class="palestrante-nome-atividade">
+                    <div class="area-img-palestrante"></div>
+                    <h2>Mesa Redonda</h2>
+                </div>
+                
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                    Culpa saepe minus nisi adipisci possimus ipsa officia 
+                    repudiandae!</p>
+
+                <ul class="list-info-atividade">
+                    <li>
+                        <img src="{%static 'feed/person_FILL1.svg'%}" alt="img">Diego Grosmann
+                    </li>
+
+                    <li>
+                        <img src="{%static 'feed/ClockTime.svg'%}" alt="img">8hr - 9hr
+                    </li>
+
+                    <li>
+                        <img src="{%static 'feed/location_on_FILL0.svg'%}" alt="img">Auditorio
+                    </li>
+                </ul>
+            </article>
+
+            <article class="atividade-detalhes">
+                <div class="palestrante-nome-atividade">
+                    <div class="area-img-palestrante"></div>
+                    <h2>Mesa Redonda</h2>
+                </div>
+                
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                    Culpa saepe minus nisi adipisci possimus ipsa officia 
+                    repudiandae!</p>
+
+                <ul class="list-info-atividade">
+                    <li>
+                        <img src="{%static 'feed/person_FILL1.svg'%}" alt="img">Diego Grosmann
+                    </li>
+
+                    <li>
+                        <img src="{%static 'feed/ClockTime.svg'%}" alt="img">8hr - 9hr
+                    </li>
+
+                    <li>
+                        <img src="{%static 'feed/location_on_FILL0.svg'%}" alt="img">Auditorio
+                    </li>
+                </ul>
+            </article>
         </div>
     </section>
 {%endblock%}

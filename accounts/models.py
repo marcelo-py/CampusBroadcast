@@ -81,11 +81,15 @@ class DatasParaEvento(models.Model):
 
 
 class Atividade(models.Model):
-    nome = models.CharField(max_length=120)
+    nome = models.CharField(max_length=120)  # nome da atividade
     membros = models.ManyToManyField(CustomUser, related_name='membros_evento')  # O orgaizador precisa ter uma conta para ser adicionado 
-
     # Para evento
     palestrantes = models.ManyToManyField(Palestrante, related_name='atividade_palestrante')  # é preciso adicionar o palestrante antes 
     evento = models.ForeignKey(Evento, on_delete=models.CASCADE, blank=True, null=True)  # não se trata apenas de atividades para evento 
 
+    horario_inicio = models.TimeField(blank=True, null=True)
+    horario_fim = models.TimeField(blank=True, null=True)
 
+    is_event = models.BooleanField(default=False)
+    
+    data_adicionado = models.DateTimeField(default=timezone.now)
