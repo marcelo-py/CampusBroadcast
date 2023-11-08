@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CustomUser, Palestrante, Evento
+from .models import CustomUser, Palestrante, Evento, DatasParaEvento, Atividade
 
 
 class UserAdmin(admin.ModelAdmin):
@@ -14,7 +14,17 @@ class EventoAdmin(admin.ModelAdmin):
     list_display = ('id', 'titulo', )
 
 
-admin.site.register(CustomUser, UserAdmin)
+class DatasParaEventoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'data', )
 
+
+class AtividadeAdmin(admin.ModelAdmin):
+    list_display = ('id', 'nome', )
+
+
+
+admin.site.register(CustomUser, UserAdmin)
 admin.site.register(Palestrante, PalestranteAdmin)
 admin.site.register(Evento, EventoAdmin)
+admin.site.register(DatasParaEvento, DatasParaEventoAdmin)
+admin.site.register(Atividade, AtividadeAdmin)

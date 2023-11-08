@@ -57,6 +57,9 @@ class Palestrante(models.Model):
     photo = models.ImageField('foto', upload_to='', blank=True, null=True)
     date_add = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+        return f'{self.first_name} {self.last_name}'
+
 
 class Evento(models.Model):
     titulo = models.CharField(max_length=120)
@@ -71,6 +74,9 @@ class Evento(models.Model):
     is_fixed = models.BooleanField(default=False)
     data_post = models.DateTimeField(default=timezone.now)
     
+    def __str__(self):
+        return self.titulo
+    
 
 class DatasParaEvento(models.Model):
     data = models.DateField(verbose_name='Dia para evento')
@@ -79,17 +85,23 @@ class DatasParaEvento(models.Model):
 
     data_adicionado = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+        return f"{self.data}"
 
 class Atividade(models.Model):
     nome = models.CharField(max_length=120)  # nome da atividade
     membros = models.ManyToManyField(CustomUser, related_name='membros_evento')  # O orgaizador precisa ter uma conta para ser adicionado 
     # Para evento
     palestrantes = models.ManyToManyField(Palestrante, related_name='atividade_palestrante')  # é preciso adicionar o palestrante antes 
-    evento = models.ForeignKey(Evento, on_delete=models.CASCADE, blank=True, null=True)  # não se trata apenas de atividades para evento 
-
+    local = models.CharField(max_length=20, null=True, blank=True)
+    data_rel = models.ForeignKey(DatasParaEvento, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Data da atividade')  # é preciso tem uma data criada
     horario_inicio = models.TimeField(blank=True, null=True)
     horario_fim = models.TimeField(blank=True, null=True)
 
     is_event = models.BooleanField(default=False)
     
     data_adicionado = models.DateTimeField(default=timezone.now)
+
+
+    def __str__(self):
+        return self.nome

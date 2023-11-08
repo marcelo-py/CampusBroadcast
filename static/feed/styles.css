@@ -110,19 +110,19 @@
     flex-wrap: wrap;
 }
 
-.sectionDiasAtividade nav{
+.sectionDiasAtividade nav {
     width: 1280px;
     max-width: 100%;
     margin: 0 auto;
 }
 
-.sectionDiasAtividade nav .list-days{
+.sectionDiasAtividade nav .list-days {
     display: flex;
     justify-content: center;
     gap: 4px;
 }
 
-.sectionDiasAtividade nav .list-days li{
+.sectionDiasAtividade nav .list-days li {
     padding: 5px 14px;
     font-weight: bold;
 }
@@ -134,15 +134,18 @@
     flex: 1 1 280px;
     max-width: 280px;
 }
-.atividade-detalhes .palestrante-nome-atividade{
+
+.atividade-detalhes .palestrante-nome-atividade {
     display: flex;
     align-items: center;
     gap: 5px;
 }
-.atividade-detalhes .palestrante-nome-atividade h2{
+
+.atividade-detalhes .palestrante-nome-atividade h2 {
     font-size: 16px;
 }
-.atividade-detalhes .palestrante-nome-atividade .area-img-palestrante{
+
+.atividade-detalhes .palestrante-nome-atividade .area-img-palestrante {
     background-color: rgba(31, 31, 31, 0.322);
     width: 52px;
     min-width: 52px;
@@ -150,7 +153,8 @@
     border: 2px solid rgba(0, 0, 0, 0.603);
     border-radius: 50%;
 }
-.atividade-detalhes > p{
+
+.atividade-detalhes>p {
     text-align: justify;
 }
 
@@ -160,12 +164,13 @@
     gap: 8px;
 }
 
-.atividade-detalhes .list-info-atividade li{
+.atividade-detalhes .list-info-atividade li {
     flex: 1;
     font-size: 13px;
     display: flex;
     align-items: center;
     gap: 4px;
+    justify-content: center;
 }
 
 
