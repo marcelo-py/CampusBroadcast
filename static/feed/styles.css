@@ -23,6 +23,7 @@
     justify-content: space-between;
 }
 
+/*Contagem regressiva*/
 .info-left .contagemRegressiva {
     display: flex;
     gap: 10px;
@@ -37,13 +38,13 @@
     padding: 8px;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.26);
-    color: rgb(13, 2, 51);
-    font-weight: bold;
+    color: #cf2f35;
+    font-weight: normal;
 }
 
 .info-left .contagemRegressiva li span {
-    color: #cf2f35;
-    font-weight: normal;
+    color: rgb(13, 2, 51);
+    font-weight: bold;
 }
 
 /*detalhes do banner*/

@@ -19,17 +19,17 @@
         <div class="evento-principal-area">
             <div class="info-left">
                 <ul class="contagemRegressiva">
-                    <li>
-                        90 <span>Dia</span>
+                    <li id="dias">
+                        <span>00</span> Dia
                     </li>
-                    <li>
-                        9 <span>Hor</span>
+                    <li id="horas">
+                        <span>00</span> Hor
                     </li>
-                    <li>
-                        20 <span>Min</span>
+                    <li id="minutos">
+                        <span>00</span> Min
                     </li>
-                    <li>
-                        90 <span>Seg</span>
+                    <li id="segundos">
+                        <span>00</span> Seg
                     </li>
                 </ul>
 
@@ -78,7 +78,7 @@
 
                     <ul class="list-info-atividade">
                         <li>
-                            <img src="{%static 'feed/person_FILL1.svg'%}" alt="img">Diego Grosmann
+                            <img src="{%static 'feed/person_FILL1.svg'%}" alt="img">{{atvd.palestrantes}}
                         </li>
 
                         <li>
@@ -155,6 +155,10 @@
         // Contagem Regressiva
         
 
+        const domDia = document.querySelector('.contagemRegressiva #dias span');
+        const domHor = document.querySelector('.contagemRegressiva #horas span');
+        const domMin = document.querySelector('.contagemRegressiva #minutos span');
+        const domSeg = document.querySelector('.contagemRegressiva #segundos span');
 
         function updateCountdown() {
             var targetDate = new Date("{{ evento.data_inicio|date:'Y-m-d' }}" + "T00:00:00");
@@ -169,8 +173,10 @@
                 var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                 var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                var countdownText = days + " Dias, " + hours + " Horas, " + minutes + " Minutos e " + seconds + " Segundos";
-                console.log(countdownText);
+                domDia.innerHTML = days;
+                domHor.innerHTML = hours;
+                domMin.innerHTML = minutes;
+                domSeg.innerHTML = seconds; 
             }
         }
 
