@@ -122,9 +122,16 @@
     gap: 4px;
 }
 
-.sectionDiasAtividade nav .list-days li {
+.sectionDiasAtividade nav .list-days li button{
     padding: 5px 14px;
     font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.sectionDiasAtividade nav .list-days li button.open{
+    border-bottom: 2px solid black;
 }
 
 .atividades-evento-container .atividade-detalhes {
@@ -132,7 +139,8 @@
     flex-direction: column;
     gap: 8px;
     flex: 1 1 280px;
-    max-width: 280px;
+    max-width: 350px;
+    justify-content: space-between;
 }
 
 .atividade-detalhes .palestrante-nome-atividade {
@@ -162,18 +170,17 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    justify-content: space-between;
+    margin-top: 8px;
 }
 
 .atividade-detalhes .list-info-atividade li {
-    flex: 1;
     font-size: 13px;
     display: flex;
     align-items: center;
     gap: 4px;
     justify-content: center;
 }
-
-
 
 
 

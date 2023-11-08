@@ -90,6 +90,7 @@ class DatasParaEvento(models.Model):
 
 class Atividade(models.Model):
     nome = models.CharField(max_length=120)  # nome da atividade
+    description = models.TextField(max_length=125, blank=True, null=True)
     membros = models.ManyToManyField(CustomUser, related_name='membros_evento')  # O orgaizador precisa ter uma conta para ser adicionado 
     # Para evento
     palestrantes = models.ManyToManyField(Palestrante, related_name='atividade_palestrante')  # é preciso adicionar o palestrante antes 
@@ -105,3 +106,4 @@ class Atividade(models.Model):
 
     def __str__(self):
         return self.nome
+    

@@ -60,35 +60,122 @@
         <nav>
             <ul class="list-days">
                 {%for date in days_events%}
-                    <li>{{date.data|date:"j \d\e F"}}</li>
+                    <li>
+                        <button id="{{date.id}}">{{date.data|date:"j \d\e F"}}</button>
+                    </li>
                 {%endfor%}
             </ul>
         </nav>
         <div class="atividades-evento-container">
-            <article class="atividade-detalhes">
-                <div class="palestrante-nome-atividade">
-                    <div class="area-img-palestrante"></div>
-                    <h2>Mesa Redonda</h2>
-                </div>
-                
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                    Culpa saepe minus nisi adipisci possimus ipsa officia 
-                    repudiandae!</p>
+            {%for atvd in atividades_first_day%}
+                <article class="atividade-detalhes">
+                    <div class="palestrante-nome-atividade">
+                        <div class="area-img-palestrante"></div>
+                        <h2>{{atvd.nome}}</h2>
+                    </div>
+                    
+                    <p>{{atvd.description}}</p>
 
-                <ul class="list-info-atividade">
-                    <li>
-                        <img src="{%static 'feed/person_FILL1.svg'%}" alt="img">Diego Grosmann
-                    </li>
+                    <ul class="list-info-atividade">
+                        <li>
+                            <img src="{%static 'feed/person_FILL1.svg'%}" alt="img">Diego Grosmann
+                        </li>
 
-                    <li>
-                        <img src="{%static 'feed/ClockTime.svg'%}" alt="img">8hr - 9hr
-                    </li>
+                        <li>
+                            <img src="{%static 'feed/ClockTime.svg'%}" alt="img">8hr - 9hr
+                        </li>
 
-                    <li>
-                        <img src="{%static 'feed/location_on_FILL0.svg'%}" alt="img">Auditorio
-                    </li>
-                </ul>
-            </article>
+                        <li>
+                            <img src="{%static 'feed/location_on_FILL0.svg'%}" alt="img">Auditorio
+                        </li>
+                    </ul>
+                </article>
+            {%endfor%}
         </div>
     </section>
+
+
+    <script>
+        const btnGetAtivividades = document.querySelectorAll("nav .list-days li button");
+        const containerAtividades = document.querySelector('.atividades-evento-container')
+
+        btnGetAtivividades[0].classList.add('open')
+        btnGetAtivividades.forEach(botao => {
+        botao.addEventListener("click", () => {
+            const idDoObjeto = botao.getAttribute("id");
+            const btnOpen = document.querySelector("nav .list-days li button.open");
+            btnOpen.classList.remove('open')
+            botao.classList.add('open')
+            fetch(`{%url 'accounts:feed_index'%}?data_atividades_id=${idDoObjeto}`)
+                .then(response => {
+                    if (!response.ok) {
+                         new Error("Erro na requisição");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    containerAtividades.innerHTML = ''
+                    atividades_data = data.list_atividades
+                    for(let key in atividades_data){
+                        let domAtividade = `<article class="atividade-detalhes">
+                                                <div class="palestrante-nome-atividade">
+                                                    <div class="area-img-palestrante"></div>
+                                                    <h2>${atividades_data[key].nome}</h2>
+                                                </div>
+                                                
+                                                <p>${atividades_data[key].descricao}</p>
+
+                                                <ul class="list-info-atividade">
+                                                    <li>
+                                                        <img src="{%static 'feed/person_FILL1.svg'%}" alt="img">${atividades_data[key].palestrantes[0]}
+                                                    </li>
+
+                                                    <li>
+                                                        <img src="{%static 'feed/ClockTime.svg'%}" alt="img">${atividades_data[key].hora_inicio} - ${atividades_data[key].hora_fim}h
+                                                    </li>
+
+                                                    <li>
+                                                        <img src="{%static 'feed/location_on_FILL0.svg'%}" alt="img">${atividades_data[key].local}
+                                                    </li>
+                                                </ul>
+                                            </article>`
+
+                        containerAtividades.innerHTML += domAtividade
+                    }                    
+                })
+                .catch(error => {
+                    console.error("Erro:", error);
+                });
+            });
+
+
+        });
+
+
+        // Contagem Regressiva
+        
+
+
+        function updateCountdown() {
+            var targetDate = new Date("{{ evento.data_inicio|date:'Y-m-d' }}" + "T00:00:00");
+            var currentDate = new Date();
+            var timeLeft = targetDate - currentDate;
+
+            if (timeLeft <= 0) {
+                console.log('Grande dia!');
+            } else {
+                var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                var countdownText = days + " Dias, " + hours + " Horas, " + minutes + " Minutos e " + seconds + " Segundos";
+                console.log(countdownText);
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+
+
+    </script>
 {%endblock%}
