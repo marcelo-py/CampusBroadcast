@@ -95,7 +95,8 @@ class Atividade(models.Model):
     # Para evento
     palestrantes = models.ManyToManyField(Palestrante, related_name='atividade_palestrante')  # é preciso adicionar o palestrante antes 
     local = models.CharField(max_length=20, null=True, blank=True)
-    data_rel = models.ForeignKey(DatasParaEvento, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Data da atividade')  # é preciso tem uma data criada
+    data_rel = models.ForeignKey(DatasParaEvento, on_delete=models.CASCADE,
+                                 blank=True, null=True, verbose_name='Data da atividade')  # é preciso tem uma data criada
     horario_inicio = models.TimeField(blank=True, null=True)
     horario_fim = models.TimeField(blank=True, null=True)
 
@@ -106,4 +107,20 @@ class Atividade(models.Model):
 
     def __str__(self):
         return self.nome
+    
+
+class AtividadeAlunos(models.Model):
+    titulo = models.CharField(max_length=110)
+    descricao = models.TextField()
+    local = models.CharField(max_length=25)
+    membros = models.ManyToManyField(CustomUser, related_name='membros_atividades')
+    data_expira = models.DateField()
+    data_apresentacao = models.DateTimeField()
+    link = models.URLField(max_length=210)
+
+    add_for = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING)
+    data_adicionado = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.titulo
     
