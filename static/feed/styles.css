@@ -100,27 +100,29 @@
 
 /*Datas e ativides do evento ativo*/
 .atividades-evento-container {
-    background-color: #D9D9D9;
+    background-color: #d9d9d98e;
     padding: 25px;
     width: 1280px;
     max-width: 100%;
     margin: 0 auto;
     display: flex;
     gap: 10px;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    overflow-x: auto;
 }
 
 .sectionDiasAtividade nav {
     width: 1280px;
     max-width: 100%;
     margin: 0 auto;
+    display: flex;
+    overflow-x: auto;
 }
 
 .sectionDiasAtividade nav .list-days {
     display: flex;
     justify-content: center;
     gap: 4px;
+    margin: 0 auto;
 }
 
 .sectionDiasAtividade nav .list-days li button{
@@ -139,9 +141,10 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    flex: 1 1 280px;
-    max-width: 350px;
+    width: 310px;
+    min-width: 310px;
     justify-content: space-between;
+    margin: 0 auto;
 }
 
 .atividade-detalhes .palestrante-nome-atividade {
@@ -182,6 +185,65 @@
     gap: 4px;
     justify-content: center;
 }
+
+
+/*POSTAGENS / DIVULGAÇÃO*/
+
+.sectionPostagens{
+    margin: 60px 0;
+}
+.sectionPostagens .postagens-area{
+    width: 1280px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.postagens-area .postagens-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.postagens-container .postagem-item{
+    width: 413px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.100);
+    background-color: #c2c2c21c;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+}
+
+.postagens-container .postagem-item h2{
+    font-size: 17px;
+    text-align: center;
+}
+
+.postagens-container .postagem-item h2.pesquisa{
+    color: #007FFF;
+}
+
+.postagens-container .postagem-item h2.apresentacao{
+    color: #00A859;
+}
+
+.postagens-container .postagem-item h2.projeto-ini{
+    color: #224FD8;
+}
+
+.postagens-container .postagem-item h2.projeto-fim{
+    color: #343B49;
+}
+
+.postagens-container .postagem-item > p{
+    text-align: justify;
+}
+.postagens-container .postagem-item a{
+    color: #ED3237;
+}
+
 
 
 
