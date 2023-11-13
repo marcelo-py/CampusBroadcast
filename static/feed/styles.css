@@ -10,7 +10,7 @@
     margin: 0 auto;
     display: flex;
     gap: 34px;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
     justify-content: space-between;
 }
 
