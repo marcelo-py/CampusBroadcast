@@ -112,14 +112,27 @@ class Atividade(models.Model):
 class AtividadeAlunos(models.Model):
     titulo = models.CharField(max_length=110)
     descricao = models.TextField()
-    local = models.CharField(max_length=25)
-    membros = models.ManyToManyField(CustomUser, related_name='membros_atividades')
+    local = models.CharField(max_length=25, null=True, blank=True)
+    membros = models.ManyToManyField(CustomUser, related_name='membros_atividades', blank=True)
     data_expira = models.DateField()
-    data_apresentacao = models.DateTimeField()
-    link = models.URLField(max_length=210)
+    data_apresentacao = models.DateTimeField(null=True, blank=True)
+    link = models.URLField(max_length=210, null=True, blank=True)
 
     add_for = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING)
     data_adicionado = models.DateTimeField(default=timezone.now)
+
+
+    TYPE_PUBLICATION_OPTIONS = (
+        ('search', 'pesquisa'),
+        ('presentation', 'apresentação'),
+        ('project', 'projeto')
+    )
+    PROJECT_OPTIONS = (
+        ('init', 'inicio'),
+        ('end', 'fim')
+    )
+    type_publication = models.CharField(max_length=13, choices=TYPE_PUBLICATION_OPTIONS, null=True, blank=True)
+    project_options = models.CharField(max_length=7, choices=PROJECT_OPTIONS, null=True, blank=True)
 
     def __str__(self):
         return self.titulo
