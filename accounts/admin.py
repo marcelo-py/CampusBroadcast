@@ -26,9 +26,14 @@ class AtividadeAlunosAdmin(admin.ModelAdmin):
     list_display = ('id', 'titulo', )
 
 
+class ComentarioAdmin(admin.ModelAdmin):
+    list_display = ('id', 'comentario', )
+
+
 admin.site.register(CustomUser, UserAdmin)
 admin.site.register(Palestrante, PalestranteAdmin)
 admin.site.register(Evento, EventoAdmin)
 admin.site.register(DatasParaEvento, DatasParaEventoAdmin)
 admin.site.register(Atividade, AtividadeAdmin)
 admin.site.register(AtividadeAlunos, AtividadeAlunosAdmin)
+admin.site.register(Comentario, ComentarioAdmin)
