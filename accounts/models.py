@@ -140,8 +140,10 @@ class AtividadeAlunos(models.Model):
         return self.titulo
     
 
-class Comentarios(models.Model):
+class Comentario(models.Model):
     comentario = models.TextField()
     usuario = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     atividade = models.ForeignKey(AtividadeAlunos, on_delete=models.CASCADE)
-    
+
+    def __str__(self):
+        return self.comentario

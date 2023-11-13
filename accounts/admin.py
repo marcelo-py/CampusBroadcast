@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CustomUser, Palestrante, Evento, DatasParaEvento, Atividade, AtividadeAlunos
+from .models import CustomUser, Palestrante, Evento, DatasParaEvento, Atividade, AtividadeAlunos, Comentario
 
 
 class UserAdmin(admin.ModelAdmin):
