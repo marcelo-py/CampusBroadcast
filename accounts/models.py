@@ -121,7 +121,6 @@ class AtividadeAlunos(models.Model):
     add_for = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING)
     data_adicionado = models.DateTimeField(default=timezone.now)
 
-
     TYPE_PUBLICATION_OPTIONS = (
         ('search', 'pesquisa'),
         ('presentation', 'apresentação'),
@@ -134,6 +133,15 @@ class AtividadeAlunos(models.Model):
     type_publication = models.CharField(max_length=13, choices=TYPE_PUBLICATION_OPTIONS, null=True, blank=True)
     project_options = models.CharField(max_length=7, choices=PROJECT_OPTIONS, null=True, blank=True)
 
+    curtidas = models.ManyToManyField(CustomUser, related_name='cutidas_atividades', blank=True)
+    interests = models.ManyToManyField(CustomUser, related_name='interesses_atividades', blank=True)
+
     def __str__(self):
         return self.titulo
+    
+
+class Comentarios(models.Model):
+    comentario = models.TextField()
+    usuario = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    atividade = models.ForeignKey(AtividadeAlunos, on_delete=models.CASCADE)
     
