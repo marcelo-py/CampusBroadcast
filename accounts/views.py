@@ -1,7 +1,7 @@
 from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
 from .forms import RegistrationForm
-from .models import Evento, DatasParaEvento, Atividade
+from .models import Evento, DatasParaEvento, Atividade, AtividadeAlunos
 from django.http import JsonResponse
 
 def register(request):
@@ -60,8 +60,10 @@ def feed_view(request):
         return JsonResponse(resposta)
 
     date_atividades = Atividade.objects.filter(data_rel=date_events_objects.first())
+    atividade_alunos = AtividadeAlunos.objects.all()
     return render(request, 'navigation/index.html', {
                                                         'evento': obj_evetntos,
                                                         'days_events': date_events_objects,
-                                                        'atividades_first_day': date_atividades
+                                                        'atividades_first_day': date_atividades,
+                                                        'atividades_alunos': atividade_alunos 
                                                     })

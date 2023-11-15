@@ -97,93 +97,93 @@
     <section class="sectionPostagens">
         <div class="postagens-area">
             <div class="postagens-container">
-                <article class="postagem-item">
-                    <div class="details-content">
-                        <h2 class="pesquisa">Um grupo de Administração do campus 
-                            está realizando uma pesquisa e conta com a sua ajuda</h2>
-                        <p>Um grupo de Administração do campus está realizando uma pesquisa 
-                            e conta com a sua ajuda</p>
-                        <a href="">clique aqui para responder a pesquisa</a>
-                        <div class="date-local">
-                            <p><strong>expira:</strong> 20/11/2023</p>
+                {%for atividade in atividades_alunos%}
+                    {%if atividade.type_publication == "search"%}
+                    <article class="postagem-item">
+                        <div class="details-content">
+                            <h2 class="pesquisa">{{atividade.titulo}}</h2>
+                            <p>{{atividade.descricao}}</p>
+                            <a href="{{atividade.link}}">clique aqui para responder a pesquisa</a>
+                            <div class="date-local">
+                                <p><strong>expira:</strong> {{atividade.data_expira}}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="widgets-actions">
-                        <button type="button">
-                            <img src="{%static 'feed/widgets/favorite.svg'%}" alt="img">
-                        </button>
-                        <button type="button">
-                            <img src="{%static 'feed/widgets/comment.svg'%}" alt="img">
-                        </button>
-                        <button type="button">
-                            <img src="{%static 'feed/widgets/interests.svg'%}" alt="img">
-                        </button>
-                   </div>
-                </article>
-
-                <article class="postagem-item">
-                    <div class="details-content">
-                        <h2 class="apresentacao">Uma turma de redes está realizando uma atividade e 
-                            conta com a sua presença ou colaboração</h2>
-                        <p>Um grupo de Administração do campus está realizando uma pesquisa 
-                            e conta com a sua ajuda</p>
-                        <a href="">clique aqui para responder a pesquisa</a>
-                        <div class="date-local">
-                            <p><strong>Local:</strong> Auditorio</p>
-                            <p><strong>dia:</strong> 20/11/2023</p>
+                        <div class="widgets-actions">
+                            <button type="button">
+                                <img src="{%static 'feed/widgets/favorite.svg'%}" alt="img">
+                            </button>
+                            <button type="button">
+                                <img src="{%static 'feed/widgets/comment.svg'%}" alt="img">
+                            </button>
+                            <button type="button">
+                                <img src="{%static 'feed/widgets/interests.svg'%}" alt="img">
+                            </button>
                         </div>
-                    </div>
-                   <div class="widgets-actions">
-                        <button type="button">
-                            <img src="{%static 'feed/widgets/favorite.svg'%}" alt="img">
-                        </button>
-                        <button type="button">
-                            <img src="{%static 'feed/widgets/comment.svg'%}" alt="img">
-                        </button>
-                        <button type="button">
-                            <img src="{%static 'feed/widgets/interests.svg'%}" alt="img">
-                        </button>
-                    </div>
-                </article>
+                    </article>
+                    {%elif atividade.type_publication == "presentation"%}
+                        <article class="postagem-item">
+                            <div class="details-content">
+                                <h2 class="apresentacao">{{atividade.titulo}}</h2>
+                                <p>{{atividade.descricao}}</p>
+                                <div class="date-local">
+                                    <p><strong>Local:</strong> {{atividade.local}}</p>
+                                    <p><strong>dia:</strong> {{atividade.data_apresentacao}}</p>
+                                </div>
+                            </div>
+                            <div class="widgets-actions">
+                                <button type="button">
+                                    <img src="{%static 'feed/widgets/favorite.svg'%}" alt="img">
+                                </button>
+                                <button type="button">
+                                    <img src="{%static 'feed/widgets/comment.svg'%}" alt="img">
+                                </button>
+                                <button type="button">
+                                    <img src="{%static 'feed/widgets/interests.svg'%}" alt="img">
+                                </button>
+                            </div>
+                        </article>
+                    {%elif atividade.type_publication == "project"%}
+                        {%if atividade.project_options == "init"%}
+                            <article class="postagem-item">
+                                <div class="details-content">
+                                    <h2 class="projeto-ini">{{atividade.titulo}}</h2>
+                                    <p>{{atividade.descricao}}</p>
+                                    <a href="">Ver todos os participantes</a>
+                                </div>
+                                <div class="widgets-actions">
+                                    <button type="button">
+                                        <img src="{%static 'feed/widgets/favorite.svg'%}" alt="img">
+                                    </button>
+                                    <button type="button">
+                                        <img src="{%static 'feed/widgets/comment.svg'%}" alt="img">
+                                    </button>
+                                    <button type="button">
+                                        <img src="{%static 'feed/widgets/interests.svg'%}" alt="img">
+                                    </button>
+                                </div>
+                            </article>
 
-                <article class="postagem-item">
-                    <div class="details-content">
-                        <h2 class="projeto-ini">Fulando de Tal começou um projeto 
-                            com o tema “Seguranças em redes de computadores”</h2>
-                        <p>Um grupo de Administração do campus está realizando uma pesquisa 
-                            e conta com a sua ajuda</p>
-                        <a href="">Ver todos os participantes</a>
-                    </div>
-                    <div class="widgets-actions">
-                        <button type="button">
-                            <img src="{%static 'feed/widgets/favorite.svg'%}" alt="img">
-                        </button>
-                        <button type="button">
-                            <img src="{%static 'feed/widgets/comment.svg'%}" alt="img">
-                        </button>
-                        <button type="button">
-                            <img src="{%static 'feed/widgets/interests.svg'%}" alt="img">
-                        </button>
-                   </div>
-                </article>
-
-                <article class="postagem-item">
-                    <div class="details-content">
-                        <img src="{%static 'feed/widgets/Conqueror.svg'%}" alt="img" class="conquer-img">
-                        <h2 class="projeto-fim">Fulando de tal junto com outras 4 pessoas fizeram uma conquista</h2>
-                    </div>
-                    <div class="widgets-actions">
-                        <button type="button">
-                            <img src="{%static 'feed/widgets/favorite.svg'%}" alt="img">
-                        </button>
-                        <button type="button">
-                            <img src="{%static 'feed/widgets/comment.svg'%}" alt="img">
-                        </button>
-                        <button type="button">
-                            <img src="{%static 'feed/widgets/interests.svg'%}" alt="img">
-                        </button>
-                   </div>
-                </article>
+                            {%elif atividade.project_options == "end"%}
+                            <article class="postagem-item">
+                                <div class="details-content">
+                                    <img src="{%static 'feed/widgets/Conqueror.svg'%}" alt="img" class="conquer-img">
+                                    <h2 class="projeto-fim">{{atividade.titulo}}</h2>
+                                </div>
+                                <div class="widgets-actions">
+                                    <button type="button">
+                                        <img src="{%static 'feed/widgets/favorite.svg'%}" alt="img">
+                                    </button>
+                                    <button type="button">
+                                        <img src="{%static 'feed/widgets/comment.svg'%}" alt="img">
+                                    </button>
+                                    <button type="button">
+                                        <img src="{%static 'feed/widgets/interests.svg'%}" alt="img">
+                                    </button>
+                                </div>
+                            </article>
+                        {%endif%}
+                    {%endif%}
+                {%endfor%}
             </div>
         </div>
     </section>

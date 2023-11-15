@@ -222,6 +222,8 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
+    justify-content: space-between;
+    flex: 1;
 }
 
 .postagens-container .postagem-item h2 {
@@ -245,7 +247,7 @@
     color: #343B49;
 }
 
-.postagens-container .postagem-item>p {
+.postagens-container .details-content p {
     text-align: justify;
 }
 
@@ -279,9 +281,11 @@
     padding: 4px;
     background-color: rgb(226, 226, 226);
 }
+
 .postagem-item .widgets-actions button:hover{
     background-color: rgb(218, 218, 218);
 }
+
 .postagem-item .widgets-actions button:nth-child(2){
     border-left: 1px solid rgba(0, 0, 0, 0.503);
     border-right: 1px solid rgba(0, 0, 0, 0.503);
@@ -292,8 +296,6 @@
     margin: 0 auto;
     width: 34px;
 }
-
-
 
 
 

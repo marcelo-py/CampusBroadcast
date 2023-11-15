@@ -114,7 +114,7 @@ class AtividadeAlunos(models.Model):
     descricao = models.TextField()
     local = models.CharField(max_length=25, null=True, blank=True)
     membros = models.ManyToManyField(CustomUser, related_name='membros_atividades', blank=True)
-    data_expira = models.DateField()
+    data_expira = models.DateField(null=True, blank=True)
     data_apresentacao = models.DateTimeField(null=True, blank=True)
     link = models.URLField(max_length=210, null=True, blank=True)
 
@@ -123,7 +123,7 @@ class AtividadeAlunos(models.Model):
 
     TYPE_PUBLICATION_OPTIONS = (
         ('search', 'pesquisa'),
-        ('presentation', 'apresentação'),
+        ('presentation', 'apresentação'), 
         ('project', 'projeto')
     )
     PROJECT_OPTIONS = (
