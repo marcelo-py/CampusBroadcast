@@ -110,13 +110,17 @@
                         </div>
                         <div class="widgets-actions">
                             <button type="button">
-                                <img src="{%static 'feed/widgets/favorite.svg'%}" alt="img">
+                                {%if request.user in atividade.curtidas.all%}
+                                    <img src="{%static 'feed/widgets/favorite_FILL1.svg'%}" alt="img">
+                                {%else%}
+                                    <img src="{%static 'feed/widgets/favorite_FILL0.svg'%}" alt="img">
+                                {%endif%}
                             </button>
                             <button type="button">
                                 <img src="{%static 'feed/widgets/comment.svg'%}" alt="img">
                             </button>
                             <button type="button">
-                                <img src="{%static 'feed/widgets/interests.svg'%}" alt="img">
+                                <img src="{%static 'feed/widgets/interests_FILL0.svg'%}" alt="img">
                             </button>
                         </div>
                     </article>
@@ -132,13 +136,13 @@
                             </div>
                             <div class="widgets-actions">
                                 <button type="button">
-                                    <img src="{%static 'feed/widgets/favorite.svg'%}" alt="img">
+                                    <img src="{%static 'feed/widgets/favorite_FILL0.svg'%}" alt="img">
                                 </button>
                                 <button type="button">
                                     <img src="{%static 'feed/widgets/comment.svg'%}" alt="img">
                                 </button>
                                 <button type="button">
-                                    <img src="{%static 'feed/widgets/interests.svg'%}" alt="img">
+                                    <img src="{%static 'feed/widgets/interests_FILL0.svg'%}" alt="img">
                                 </button>
                             </div>
                         </article>
@@ -152,13 +156,13 @@
                                 </div>
                                 <div class="widgets-actions">
                                     <button type="button">
-                                        <img src="{%static 'feed/widgets/favorite.svg'%}" alt="img">
+                                        <img src="{%static 'feed/widgets/favorite_FILL0.svg'%}" alt="img">
                                     </button>
                                     <button type="button">
                                         <img src="{%static 'feed/widgets/comment.svg'%}" alt="img">
                                     </button>
                                     <button type="button">
-                                        <img src="{%static 'feed/widgets/interests.svg'%}" alt="img">
+                                        <img src="{%static 'feed/widgets/interests_FILL0.svg'%}" alt="img">
                                     </button>
                                 </div>
                             </article>
@@ -171,13 +175,13 @@
                                 </div>
                                 <div class="widgets-actions">
                                     <button type="button">
-                                        <img src="{%static 'feed/widgets/favorite.svg'%}" alt="img">
+                                        <img src="{%static 'feed/widgets/favorite_FILL0.svg'%}" alt="img">
                                     </button>
                                     <button type="button">
                                         <img src="{%static 'feed/widgets/comment.svg'%}" alt="img">
                                     </button>
                                     <button type="button">
-                                        <img src="{%static 'feed/widgets/interests.svg'%}" alt="img">
+                                        <img src="{%static 'feed/widgets/interests_FILL0.svg'%}" alt="img">
                                     </button>
                                 </div>
                             </article>
