@@ -291,7 +291,7 @@
     border-right: 1px solid rgba(0, 0, 0, 0.503);
 }
 
-.postagem-item .widgets-actions button svg {
+.postagem-item .widgets-actions button, svg {
     display: block;
     margin: 0 auto;
 }
