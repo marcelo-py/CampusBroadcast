@@ -88,3 +88,20 @@ def curtir(request):
     
     return HttpResponse('Esse metodo aqui não!', status=405)
 
+
+def interesse(request):
+    if request.method == "PUT":
+        user_request = request.user
+        data_dict = json.loads(request.body)
+        objct_id = data_dict.get('pub_id')
+        pub_objct = get_object_or_404(AtividadeAlunos, pk=objct_id)
+        
+        if user_request not in pub_objct.interests.all():
+            pub_objct.interests.add(user_request)
+        else:
+            pub_objct.interests.remove(user_request)
+
+        return JsonResponse({'mensagem': 'Interessado com sucesso!'}, status=200)
+    
+    return HttpResponse('Esse metodo aqui não!', status=405)
+
