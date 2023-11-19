@@ -109,13 +109,26 @@
                             </div>
                         </div>
                         <div class="widgets-actions">
-                            <button type="button">
-                                {%if request.user in atividade.curtidas.all%}
-                                    <img src="{%static 'feed/widgets/favorite_FILL1.svg'%}" alt="img">
-                                {%else%}
-                                    <img src="{%static 'feed/widgets/favorite_FILL0.svg'%}" alt="img">
-                                {%endif%}
-                            </button>
+                            {%if request.user in atividade.curtidas.all%}
+                                <button type="button" class="btn-curtir curtiu">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40" fill="#414141" stroke-width="40" stroke="#414141">
+                                        <path d="m480-174-25.128-23.025q-99.718-90.898-164.513-156.052T187.666-467.859q-37.897-49.628-52.782-89.423Q120-597.077 
+                                        120-636.923q0-75.18 50.949-126.129Q221.897-814 296.923-814q54.051 0 100.769 28.538Q444.41-756.923 480-702.154q37.539-55.744 
+                                        83.513-83.795Q609.487-814 663.077-814q75.026 0 125.975 50.948Q840-712.103 840-636.923q0 39.846-14.884 79.641-14.885 39.795-52.783 
+                                        89.423-37.897 49.628-102.564 114.782-64.666 65.154-164.641 156.052L480-174Z"/>
+                                    </svg>
+                                </button>
+                            {%else%}
+                                <button type="button" class="btn-curtir">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40" fill="none" stroke-width="40" stroke="#414141">
+                                        <path d="m480-174-25.128-23.025q-99.718-90.898-164.513-156.052T187.666-467.859q-37.897-49.628-52.782-89.423Q120-597.077 
+                                        120-636.923q0-75.18 50.949-126.129Q221.897-814 296.923-814q54.051 0 100.769 28.538Q444.41-756.923 480-702.154q37.539-55.744 
+                                        83.513-83.795Q609.487-814 663.077-814q75.026 0 125.975 50.948Q840-712.103 840-636.923q0 39.846-14.884 79.641-14.885 39.795-52.783 
+                                        89.423-37.897 49.628-102.564 114.782-64.666 65.154-164.641 156.052L480-174Z"/>
+                                    </svg>
+                                </button>
+                            {%endif%}
+                            
                             <button type="button">
                                 <img src="{%static 'feed/widgets/comment.svg'%}" alt="img">
                             </button>
@@ -135,9 +148,26 @@
                                 </div>
                             </div>
                             <div class="widgets-actions">
-                                <button type="button">
-                                    <img src="{%static 'feed/widgets/favorite_FILL0.svg'%}" alt="img">
-                                </button>
+                                {%if request.user in atividade.curtidas.all%}
+                                    <button type="button" class="btn-curtir curtiu">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40" fill="#414141" stroke-width="40" stroke="#414141">
+                                            <path d="m480-174-25.128-23.025q-99.718-90.898-164.513-156.052T187.666-467.859q-37.897-49.628-52.782-89.423Q120-597.077 
+                                            120-636.923q0-75.18 50.949-126.129Q221.897-814 296.923-814q54.051 0 100.769 28.538Q444.41-756.923 480-702.154q37.539-55.744 
+                                            83.513-83.795Q609.487-814 663.077-814q75.026 0 125.975 50.948Q840-712.103 840-636.923q0 39.846-14.884 79.641-14.885 39.795-52.783 
+                                            89.423-37.897 49.628-102.564 114.782-64.666 65.154-164.641 156.052L480-174Z"/>
+                                        </svg>
+                                    </button>
+                                {%else%}
+                                    <button type="button" class="btn-curtir">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40" fill="none" stroke-width="40" stroke="#414141">
+                                            <path d="m480-174-25.128-23.025q-99.718-90.898-164.513-156.052T187.666-467.859q-37.897-49.628-52.782-89.423Q120-597.077 
+                                            120-636.923q0-75.18 50.949-126.129Q221.897-814 296.923-814q54.051 0 100.769 28.538Q444.41-756.923 480-702.154q37.539-55.744 
+                                            83.513-83.795Q609.487-814 663.077-814q75.026 0 125.975 50.948Q840-712.103 840-636.923q0 39.846-14.884 79.641-14.885 39.795-52.783 
+                                            89.423-37.897 49.628-102.564 114.782-64.666 65.154-164.641 156.052L480-174Z"/>
+                                        </svg>
+                                    </button>
+                                {%endif%}
+
                                 <button type="button">
                                     <img src="{%static 'feed/widgets/comment.svg'%}" alt="img">
                                 </button>
@@ -155,9 +185,25 @@
                                     <a href="">Ver todos os participantes</a>
                                 </div>
                                 <div class="widgets-actions">
-                                    <button type="button">
-                                        <img src="{%static 'feed/widgets/favorite_FILL0.svg'%}" alt="img">
-                                    </button>
+                                    {%if request.user in atividade.curtidas.all%}
+                                        <button type="button" class="btn-curtir curtiu">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40" fill="#414141" stroke-width="40" stroke="#414141">
+                                                <path d="m480-174-25.128-23.025q-99.718-90.898-164.513-156.052T187.666-467.859q-37.897-49.628-52.782-89.423Q120-597.077 
+                                                120-636.923q0-75.18 50.949-126.129Q221.897-814 296.923-814q54.051 0 100.769 28.538Q444.41-756.923 480-702.154q37.539-55.744 
+                                                83.513-83.795Q609.487-814 663.077-814q75.026 0 125.975 50.948Q840-712.103 840-636.923q0 39.846-14.884 79.641-14.885 39.795-52.783 
+                                                89.423-37.897 49.628-102.564 114.782-64.666 65.154-164.641 156.052L480-174Z"/>
+                                            </svg>
+                                        </button>
+                                    {%else%}
+                                        <button type="button" class="btn-curtir">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40" fill="none" stroke-width="40" stroke="#414141">
+                                                <path d="m480-174-25.128-23.025q-99.718-90.898-164.513-156.052T187.666-467.859q-37.897-49.628-52.782-89.423Q120-597.077 
+                                                120-636.923q0-75.18 50.949-126.129Q221.897-814 296.923-814q54.051 0 100.769 28.538Q444.41-756.923 480-702.154q37.539-55.744 
+                                                83.513-83.795Q609.487-814 663.077-814q75.026 0 125.975 50.948Q840-712.103 840-636.923q0 39.846-14.884 79.641-14.885 39.795-52.783 
+                                                89.423-37.897 49.628-102.564 114.782-64.666 65.154-164.641 156.052L480-174Z"/>
+                                            </svg>
+                                        </button>
+                                    {%endif%}
                                     <button type="button">
                                         <img src="{%static 'feed/widgets/comment.svg'%}" alt="img">
                                     </button>
@@ -173,10 +219,27 @@
                                     <img src="{%static 'feed/widgets/Conqueror.svg'%}" alt="img" class="conquer-img">
                                     <h2 class="projeto-fim">{{atividade.titulo}}</h2>
                                 </div>
-                                <div class="widgets-actions">
-                                    <button type="button">
-                                        <img src="{%static 'feed/widgets/favorite_FILL0.svg'%}" alt="img">
-                                    </button>
+                                <div class="widgets-actions" class="btn-curtir">
+                                    {%if request.user in atividade.curtidas.all%}
+                                        <button type="button" class="btn-curtir curtiu">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40" fill="#414141" stroke-width="40" stroke="#414141">
+                                                <path d="m480-174-25.128-23.025q-99.718-90.898-164.513-156.052T187.666-467.859q-37.897-49.628-52.782-89.423Q120-597.077 
+                                                120-636.923q0-75.18 50.949-126.129Q221.897-814 296.923-814q54.051 0 100.769 28.538Q444.41-756.923 480-702.154q37.539-55.744 
+                                                83.513-83.795Q609.487-814 663.077-814q75.026 0 125.975 50.948Q840-712.103 840-636.923q0 39.846-14.884 79.641-14.885 39.795-52.783 
+                                                89.423-37.897 49.628-102.564 114.782-64.666 65.154-164.641 156.052L480-174Z"/>
+                                            </svg>
+                                        </button>
+                                    {%else%}
+                                        <button type="button" class="btn-curtir">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40" fill="none" stroke-width="40" stroke="#414141">
+                                                <path d="m480-174-25.128-23.025q-99.718-90.898-164.513-156.052T187.666-467.859q-37.897-49.628-52.782-89.423Q120-597.077 
+                                                120-636.923q0-75.18 50.949-126.129Q221.897-814 296.923-814q54.051 0 100.769 28.538Q444.41-756.923 480-702.154q37.539-55.744 
+                                                83.513-83.795Q609.487-814 663.077-814q75.026 0 125.975 50.948Q840-712.103 840-636.923q0 39.846-14.884 79.641-14.885 39.795-52.783 
+                                                89.423-37.897 49.628-102.564 114.782-64.666 65.154-164.641 156.052L480-174Z"/>
+                                            </svg>
+                                        </button>
+                                    {%endif%}
+                                    
                                     <button type="button">
                                         <img src="{%static 'feed/widgets/comment.svg'%}" alt="img">
                                     </button>
@@ -280,5 +343,24 @@
         setInterval(updateCountdown, 1000);
 
 
+        //Para o Botão de Curtir
+        document.addEventListener('DOMContentLoaded', function () {
+        var botoesCurtir = document.querySelectorAll('.btn-curtir');
+
+        botoesCurtir.forEach(function (botao) {
+            botao.addEventListener('click', function () {
+                botao.classList.toggle('curtiu');
+
+                var svg = botao.querySelector('svg');
+
+                // Verifica se o botão tem a classe 'curtiu' e ajusta o preenchimento do SVG
+                if (botao.classList.contains('curtiu')) {
+                    svg.setAttribute('fill', '#414141');
+                } else {
+                    svg.setAttribute('fill', 'none');
+                }
+            });
+        });
+    });
     </script>
 {%endblock%}
