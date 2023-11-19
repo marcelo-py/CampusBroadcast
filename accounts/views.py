@@ -2,7 +2,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
 from .forms import RegistrationForm
 from .models import Evento, DatasParaEvento, Atividade, AtividadeAlunos
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, get_object_or_404
 import json
 
@@ -71,15 +71,20 @@ def feed_view(request):
                                                         'atividades_alunos': atividade_alunos 
                                                     })
 
-def curtir(request):
-    user_request = request.user
-    data_dict = json.loads(request.body)
-    objct_id = data_dict.get('pub_id')
-    pub_objct = get_object_or_404(AtividadeAlunos, pk=objct_id)
-    
-    if user_request not in pub_objct.curtidas.all():
-        pub_objct.curtidas.add(user_request)
-    else:
-        pub_objct.curtidas.remove(user_request)
 
-    return JsonResponse({'mensagem': 'curtido com sucesso'}, status=200)
+def curtir(request):
+    if request.method == "PUT":
+        user_request = request.user
+        data_dict = json.loads(request.body)
+        objct_id = data_dict.get('pub_id')
+        pub_objct = get_object_or_404(AtividadeAlunos, pk=objct_id)
+        
+        if user_request not in pub_objct.curtidas.all():
+            pub_objct.curtidas.add(user_request)
+        else:
+            pub_objct.curtidas.remove(user_request)
+
+        return JsonResponse({'mensagem': 'curtido com sucesso'}, status=200)
+    
+    return HttpResponse('Esse metodo aqui não!', status=405)
+
