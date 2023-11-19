@@ -280,6 +280,9 @@
     border: none;
     padding: 4px;
     background-color: rgb(226, 226, 226);
+    display: flex;
+    justify-content: center;
+    align-items: end;
 }
 
 .postagem-item .widgets-actions button:hover{
@@ -291,9 +294,8 @@
     border-right: 1px solid rgba(0, 0, 0, 0.503);
 }
 
-.postagem-item .widgets-actions button, svg {
-    display: block;
-    margin: 0 auto;
+.postagem-item .widgets-actions button span {
+    color: #343B49;
 }
 
 
