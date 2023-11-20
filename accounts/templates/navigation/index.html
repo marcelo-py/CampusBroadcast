@@ -96,6 +96,35 @@
 
     <section class="sectionPostagens">
         <div class="postagens-area">
+            <div role="button" id="buttonPub">
+                <span>Fazer uma publicação</span>
+            </div>
+
+            <div class="post-modal" hidden>
+                <h2>Faça uma postagem</h2>
+                <form action="" method="POST">
+                    <div class="type_publication">
+                        <h3>Tipo de postagem</h3>
+                        <div class="fields-type_publication">
+                            <div>
+                                <label for="search">Pesquisa</label>
+                                <input type="radio" name="type_publication" id="search" value="search">
+                            </div>
+                            
+                            <div>
+                                <label for="presentation">Apresentação</label>
+                                <input type="radio" name="type_publication" id="presentation" value="presentation">
+                            </div>
+
+                            <div>
+                                <label for="project">Projeto</label>
+                                <input type="radio" name="type_publication" id="project" value="project">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
             <div class="postagens-container">
                 {%for atividade in atividades_alunos%}
                     {%if atividade.type_publication == "search"%}
@@ -447,12 +476,15 @@
                     botao.classList.toggle('curtiu');
 
                     var svg = botao.querySelector('svg');
+                    let quantLikes = botao.querySelector('span');
 
                     // Verifica se o botão tem a classe 'curtiu' e ajusta o preenchimento do SVG
                     if (botao.classList.contains('curtiu')) {
                         svg.setAttribute('fill', '#414141');
+                        quantLikes.innerText = parseInt(quantLikes.innerText) + 1
                     } else {
                         svg.setAttribute('fill', 'none');
+                        quantLikes.innerText = parseInt(quantLikes.innerText) - 1
                     }
 
                     const objectId = botao.dataset.id
@@ -509,12 +541,15 @@
                         console.error('Erro:', error);
                     });
 
+                    let quantInterests = botao.querySelector('span');
                     var svg = botao.querySelector('svg');
                     // Verifica se o botão tem a classe 'curtiu' e ajusta o preenchimento do SVG
                     if (botao.classList.contains('interessado')) {
                         svg.setAttribute('fill', '#414141');
+                        quantInterests.innerText = parseInt(quantInterests.innerText) + 1
                     } else {
                         svg.setAttribute('fill', 'none');
+                        quantInterests.innerText = parseInt(quantInterests.innerText) - 1
                     }
                 });
             });

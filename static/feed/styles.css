@@ -188,7 +188,6 @@
 
 
 /*POSTAGENS / DIVULGAÇÃO*/
-
 .sectionPostagens {
     margin: 60px 0;
 }
@@ -197,6 +196,40 @@
     width: 1280px;
     max-width: 100%;
     margin: 0 auto;
+}
+
+#buttonPub{
+    padding: 15px 25px;
+    background-color: #d4e4db;
+    width: 413px;
+    max-width: 100%;
+    text-align: center;
+    border: 2px dashed rgba(0, 0, 0, 0.308);
+    margin: 0  auto 20px auto;
+    cursor: pointer;
+}
+
+#buttonPub span{
+    color: #1e222b;
+}
+
+/*MODAL DE POST*/
+.post-modal{
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 34px;
+    z-index: 1001;
+}
+.post-modal form{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.post-modal .type_publication .fields-type_publication{
+    display: flex;
 }
 
 .postagens-area .postagens-container {
@@ -295,7 +328,8 @@
 }
 
 .postagem-item .widgets-actions button span {
-    color: #343B49;
+    color: #525b70;
+    min-width: 15px;
 }
 
 
