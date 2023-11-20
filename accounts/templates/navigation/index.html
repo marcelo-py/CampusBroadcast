@@ -96,35 +96,36 @@
 
     <section class="sectionPostagens">
         <div class="postagens-area">
-            <div role="button" id="buttonPub">
-                <span>Fazer uma publicação</span>
-            </div>
+            <button id="buttonPub">Fazer uma publicação</button>
 
-            <div class="post-modal" hidden>
-                <h2>Faça uma postagem</h2>
-                <form action="" method="POST">
-                    <div class="type_publication">
-                        <h3>Tipo de postagem</h3>
-                        <div class="fields-type_publication">
-                            <div>
-                                <label for="search">Pesquisa</label>
-                                <input type="radio" name="type_publication" id="search" value="search">
-                            </div>
-                            
-                            <div>
-                                <label for="presentation">Apresentação</label>
-                                <input type="radio" name="type_publication" id="presentation" value="presentation">
-                            </div>
+            <div class="modal-container" id="modalContainer">
+                <div class="post-modal">
+                    <h2>Faça uma postagem</h2>
+                    <form action="" method="POST">
+                        <div class="type_publication">
+                            <h3>Tipo de postagem</h3>
+                            <div class="fields-type_publication">
+                                <div>
+                                    <label for="search">Pesquisa</label>
+                                    <input type="radio" name="type_publication" id="search" value="search">
+                                </div>
+                                
+                                <div>
+                                    <label for="presentation">Apresentação</label>
+                                    <input type="radio" name="type_publication" id="presentation" value="presentation">
+                                </div>
 
-                            <div>
-                                <label for="project">Projeto</label>
-                                <input type="radio" name="type_publication" id="project" value="project">
+                                <div>
+                                    <label for="project">Projeto</label>
+                                    <input type="radio" name="type_publication" id="project" value="project">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <button type="submit">Enviar</button>
-                </form>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
             </div>
+
             <div class="postagens-container">
                 {%for atividade in atividades_alunos%}
                     {%if atividade.type_publication == "search"%}
@@ -381,6 +382,18 @@
         const btnGetAtivividades = document.querySelectorAll("nav .list-days li button");
         const containerAtividades = document.querySelector('.atividades-evento-container')
 
+
+        // Para a aparição do modal de formulario
+        document.getElementById('buttonPub').addEventListener('click', function () {
+            document.getElementById('modalContainer').style.display = 'flex';
+        });
+
+        document.querySelector('.modal-container').addEventListener('click', function (event) {
+            if (event.target === this) {
+                this.style.display = 'none';
+            }
+        });
+
         btnGetAtivividades[0].classList.add('open')
         btnGetAtivividades.forEach(botao => {
         botao.addEventListener("click", () => {
@@ -553,6 +566,17 @@
                     }
                 });
             });
+
+            function showPostModal() {
+                document.querySelector('.post-modal').style.display = 'block';
+                document.querySelector('body').classList.add('modal-open');
+            }
+
+            // Função para esconder o modal e o fundo escuro
+            function hidePostModal() {
+                document.querySelector('.post-modal').style.display = 'none';
+                document.querySelector('body').classList.remove('modal-open');
+            }
         });
     </script>
 {%endblock%}
