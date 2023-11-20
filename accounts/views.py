@@ -105,3 +105,9 @@ def interesse(request):
     
     return HttpResponse('Esse metodo aqui não!', status=405)
 
+
+def create_publication(request):
+    if request.method == "POST":
+        print('O campooo>>>>>>>> ', request.POST.get('type_publication'))
+        return JsonResponse({'mensagem': 'Publicado com sucesso!'}, status=200)
+

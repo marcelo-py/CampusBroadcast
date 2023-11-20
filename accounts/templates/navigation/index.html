@@ -101,9 +101,9 @@
             <div class="modal-container" id="modalContainer">
                 <div class="post-modal">
                     <h2>Faça uma postagem</h2>
-                    <form action="" method="POST">
+                    <form action="{url 'accounts:publication'}" method="POST">
+                        {%csrf_token%}
                         <div class="type_publication">
-                            <h3>Tipo de postagem</h3>
                             <div class="fields-type_publication">
                                 <div>
                                     <label for="search">Pesquisa</label>
@@ -121,6 +121,31 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="form-fields" id="searchFields">
+                            <!-- Campos específicos para pesquisa -->
+                            <div>
+                                <label for="description_search">Descreva a pesquisa:</label>
+                                <textarea name="description_search" placeholder="Descreva a pesquisa, explicando do que se trata"></textarea>
+                            </div>
+                        </div>
+                    
+                        <div class="form-fields" id="presentationFields">
+                            <!-- Campos específicos para apresentação -->
+                            <div>
+                                <label for="description_presentation">Descreva a apresentação:</label>
+                                <textarea name="description_presentation" placeholder="Descreva a apresentação, explicando do que se trata"></textarea>
+                            </div>
+                        </div>
+                    
+                        <div class="form-fields" id="projectFields">
+                            <!-- Campos específicos para projeto -->
+                            <div>
+                                <label for="description-project">Descreva o projeto</label>
+                                <textarea name="description_project" placeholder="Descreva seu projeto, explicando do que se trata"></textarea>
+                            </div>
+                        </div>
+
                         <button type="submit">Enviar</button>
                     </form>
                 </div>
@@ -477,8 +502,55 @@
 
         setInterval(updateCountdown, 1000);
 
-        //Para o Botão de Curtir e Interesse
+        function hideAllFields() {
+            // Oculta todos os campos do formulário
+            const allFields = document.querySelectorAll('.form-fields');
+            allFields.forEach(function (field) {
+                field.style.display = 'none';
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
+            const radioInputs = document.querySelectorAll('input[name="type_publication"]');
+            radioInputs.forEach(function (input) {
+                input.addEventListener('change', function () {
+                    hideAllFields();
+
+                    // Obtém o valor do input selecionado
+                    const selectedValue = document.querySelector('input[name="type_publication"]:checked').value;
+
+                    // Mostra os campos correspondentes ao tipo selecionado
+                    const fieldsToShow = document.getElementById(`${selectedValue}Fields`);
+                    fieldsToShow.style.display = 'block';
+                });
+            });
+
+            // ENVIO DO FORMULARIO
+            const postForm = document.querySelector('.modal-container form');
+            postForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const formData = new FormData(postForm);
+
+                fetch('{%url "accounts:publication"%}', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro na requisição');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Requisição bem-sucedida:', data);
+                    postForm.reset()
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+            });
+
             var botoesCurtir = document.querySelectorAll('.btn-curtir');
             var botoesInteressado = document.querySelectorAll('.btn-interests');
             const csrfToken = document.cookie.match(/csrftoken=([^ ;]+)/)[1];

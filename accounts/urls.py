@@ -12,4 +12,5 @@ urlpatterns = [
     path('', views.feed_view, name='feed_index'),
     path('curtir/', views.curtir, name='curtir'),
     path('interesse/', views.interesse, name='curtir'),
+    path('publication/', views.create_publication, name='publication')
 ]
