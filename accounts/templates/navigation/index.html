@@ -126,7 +126,7 @@
                             <!-- Campos específicos para pesquisa -->
                             <div>
                                 <label for="description_search">Descreva a pesquisa:</label>
-                                <textarea name="description_search" placeholder="Descreva a pesquisa, explicando do que se trata"></textarea>
+                                <textarea name="description_search" minlength="2" maxlength="110" placeholder="Descreva a pesquisa, explicando do que se trata"></textarea>
                             </div>
                         </div>
                     
@@ -134,7 +134,7 @@
                             <!-- Campos específicos para apresentação -->
                             <div>
                                 <label for="description_presentation">Descreva a apresentação:</label>
-                                <textarea name="description_presentation" placeholder="Descreva a apresentação, explicando do que se trata"></textarea>
+                                <textarea name="description_presentation" minlength="2" maxlength="110" placeholder="Descreva a apresentação, explicando do que se trata"></textarea>
                             </div>
                         </div>
                     
@@ -142,7 +142,7 @@
                             <!-- Campos específicos para projeto -->
                             <div>
                                 <label for="description-project">Descreva o projeto</label>
-                                <textarea name="description_project" placeholder="Descreva seu projeto, explicando do que se trata"></textarea>
+                                <textarea name="description_project" minlength="2" maxlength="110" placeholder="Descreva seu projeto, explicando do que se trata"></textarea>
                             </div>
                         </div>
 
@@ -544,7 +544,9 @@
                 })
                 .then(data => {
                     console.log('Requisição bem-sucedida:', data);
-                    postForm.reset()
+                    postForm.reset();
+                    hideAllFields();
+                    document.querySelector('.modal-container').click()
                 })
                 .catch(error => {
                     console.error('Erro:', error);

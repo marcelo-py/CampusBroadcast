@@ -113,6 +113,7 @@ class Atividade(models.Model):
 class AtividadeAlunos(models.Model):
     titulo = models.CharField(max_length=110)
     descricao = models.TextField(max_length=105)
+    nome_projeto = models.CharField(max_length=40, blank=True, null=True)
     local = models.CharField(max_length=25, null=True, blank=True)
     membros = models.ManyToManyField(CustomUser, related_name='membros_atividades', blank=True)
     data_expira = models.DateField(null=True, blank=True)

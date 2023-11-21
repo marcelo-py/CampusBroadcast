@@ -110,14 +110,33 @@ def create_publication(request):
     if request.method == "POST":
         type_publication = request.POST.get('type_publication')
         if type_publication == 'search':
-            print('Publicação de peesquisa')
+            AtividadeAlunos.objects.create(
+                titulo=None,
+                descricao=None,
+                link=None,
+                data_expira=None,
+            )
+
         elif type_publication == 'presentation':
-            print('Publicação de apresentação')
+            AtividadeAlunos.objects.create(
+                titulo=None,
+                descricao=None,
+                data_apresentacao=None,
+                local=None
+            )
+
         elif type_publication == 'project':
-            print('Publicação de projeto!')
+            AtividadeAlunos.objects.create(
+                titulo=None,
+                descricao=None,
+                nome_projeto=None,
+                project_options=None
+            )
 
         else:
             return JsonResponse({'mensagem': 'Algo invalido'}, status=502)
         
         return JsonResponse({'mensagem': 'Publicado com sucesso!'}, status=200)
+    
+    return JsonResponse({'mensagem': 'Publicado com sucesso!'}, status=200)
 
