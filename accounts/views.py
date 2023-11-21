@@ -108,6 +108,16 @@ def interesse(request):
 
 def create_publication(request):
     if request.method == "POST":
-        print('O campooo>>>>>>>> ', request.POST.get('type_publication'))
+        type_publication = request.POST.get('type_publication')
+        if type_publication == 'search':
+            print('Publicação de peesquisa')
+        elif type_publication == 'presentation':
+            print('Publicação de apresentação')
+        elif type_publication == 'project':
+            print('Publicação de projeto!')
+
+        else:
+            return JsonResponse({'mensagem': 'Algo invalido'}, status=502)
+        
         return JsonResponse({'mensagem': 'Publicado com sucesso!'}, status=200)
 
