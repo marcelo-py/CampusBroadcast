@@ -70,7 +70,9 @@
             {%for atvd in atividades_first_day%}
                 <article class="atividade-detalhes">
                     <div class="palestrante-nome-atividade">
-                        <div class="area-img-palestrante"></div>
+                        <div class="area-img-palestrante">
+
+                        </div>
                         <h2>{{atvd.nome}}</h2>
                     </div>
                     
@@ -124,25 +126,63 @@
 
                         <div class="form-fields" id="searchFields">
                             <!-- Campos específicos para pesquisa -->
-                            <div>
-                                <label for="description_search">Descreva a pesquisa:</label>
-                                <textarea name="description_search" minlength="2" maxlength="110" placeholder="Descreva a pesquisa, explicando do que se trata"></textarea>
+                            <div class="fieldsContainer">
+                                <div>
+                                    <label for="description_search">Descreva a pesquisa:</label>
+                                    <textarea name="description_search" maxlength="110" placeholder="Descreva a pesquisa, explicando do que se trata"></textarea>
+                                </div>
+                                <div>
+                                    <label for="link-search">Link</label>
+                                    <input type="url" name="link" id="link-search">
+                                </div>
+                                <div>
+                                    <label for="expira-search">Data de expiração</label>
+                                    <input type="date" name="data_expira" id="expira-search">
+                                </div>
                             </div>
                         </div>
                     
                         <div class="form-fields" id="presentationFields">
                             <!-- Campos específicos para apresentação -->
-                            <div>
-                                <label for="description_presentation">Descreva a apresentação:</label>
-                                <textarea name="description_presentation" minlength="2" maxlength="110" placeholder="Descreva a apresentação, explicando do que se trata"></textarea>
+                            <div class="fieldsContainer">
+                                <div>
+                                    <label for="description_presentation">Descreva a apresentação:</label>
+                                    <textarea name="description_presentation" maxlength="110" placeholder="Descreva a apresentação, explicando do que se trata"></textarea>
+                                </div>
+                                <div>
+                                    <label for="data_hora">Data e hora</label>
+                                    <input type="datetime-local" name="data_hora" id="data_hora">
+                                </div>
+                                <div>
+                                    <label for="local_presentation">Local da apresentação</label>
+                                    <input type="text" id="local_presentation" name="local">
+                                </div>
                             </div>
                         </div>
-                    
+                        
                         <div class="form-fields" id="projectFields">
                             <!-- Campos específicos para projeto -->
-                            <div>
-                                <label for="description-project">Descreva o projeto</label>
-                                <textarea name="description_project" minlength="2" maxlength="110" placeholder="Descreva seu projeto, explicando do que se trata"></textarea>
+                            <div class="fieldsContainer">
+                                <div>
+                                    <div class="project_options">
+                                        <div>
+                                            <label for="init-project">Inicio</label>
+                                            <input type="radio" id="init-project" value="init" name="project_options" checked>
+                                        </div>
+                                        <div>
+                                            <label for="end-project">Fim</label>
+                                            <input type="radio" id="end-project" value="end" name="project_options">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="project_name">Nome do projeto</label>
+                                    <input type="text" id="project_name" name="project_name" maxlength="50">
+                                </div>
+                                <div>
+                                    <label for="description_project">Descreva o projeto</label>
+                                    <textarea name="description_project" maxlength="110" id="description_project" placeholder="Descreva seu projeto, explicando do que se trata"></textarea>
+                                </div>
                             </div>
                         </div>
 
@@ -406,7 +446,7 @@
     <script>
         const btnGetAtivividades = document.querySelectorAll("nav .list-days li button");
         const containerAtividades = document.querySelector('.atividades-evento-container')
-
+        const postForm = document.querySelector('.modal-container form');
 
         // Para a aparição do modal de formulario
         document.getElementById('buttonPub').addEventListener('click', function () {
@@ -515,7 +555,6 @@
             radioInputs.forEach(function (input) {
                 input.addEventListener('change', function () {
                     hideAllFields();
-
                     // Obtém o valor do input selecionado
                     const selectedValue = document.querySelector('input[name="type_publication"]:checked').value;
 
@@ -526,7 +565,6 @@
             });
 
             // ENVIO DO FORMULARIO
-            const postForm = document.querySelector('.modal-container form');
             postForm.addEventListener('submit', function (event) {
                 event.preventDefault();
 

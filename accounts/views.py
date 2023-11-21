@@ -109,29 +109,67 @@ def interesse(request):
 def create_publication(request):
     if request.method == "POST":
         type_publication = request.POST.get('type_publication')
+        user_request = request.user
+        # Campos
+        descricao_project = request.POST.get('description_project')
+        descricao_search = request.POST.get('description_search')
+        descricao_presentation = request.POST.get('description_presentation')
+
+        link = request.POST.get('link')
+        data_expira = request.POST.get('data_expira')
+        data_hora_apresentacao = request.POST.get('data_hora')
+        local = request.POST.get('local')
+        project_name = request.POST.get('project_name')
+
+        print('Descriçao Search>>>>>', descricao_search)
+        print('Descriçao Project>>>>>', descricao_project)
+        print('Descriçao Presentation>>>>>', descricao_presentation)
+
         if type_publication == 'search':
+            titulo = f"A turma de {user_request.training} do campus está realizando uma pesquisa e conta com a sua ajuda"
             AtividadeAlunos.objects.create(
-                titulo=None,
-                descricao=None,
-                link=None,
-                data_expira=None,
+                titulo=titulo,
+                descricao=descricao_search,
+                link=link,
+                data_expira=data_expira,
+                add_for=user_request,
+                type_publication=type_publication
             )
 
         elif type_publication == 'presentation':
+            titulo = f"Apresentação de um trabalho da turma de {user_request.training}"
             AtividadeAlunos.objects.create(
-                titulo=None,
-                descricao=None,
-                data_apresentacao=None,
-                local=None
+                titulo=titulo,
+                descricao=descricao_presentation,
+                data_apresentacao=data_hora_apresentacao,
+                local=local,
+                add_for=user_request,
+                type_publication=type_publication
             )
 
         elif type_publication == 'project':
-            AtividadeAlunos.objects.create(
-                titulo=None,
-                descricao=None,
-                nome_projeto=None,
-                project_options=None
-            )
+            
+            project_options = request.POST.get('project_options')
+            if project_options == 'init':
+                titulo = f"{user_request.first_name} {user_request.last_name} iniciou um projeto no campus"
+                AtividadeAlunos.objects.create(
+                    titulo=titulo,
+                    descricao=descricao_project,
+                    nome_projeto=project_name,
+                    project_options=project_options,
+                    add_for=user_request,
+                    type_publication=type_publication
+                )
+            elif project_options == 'end':
+                titulo = f"{user_request.first_name} {user_request.last_name} da turma de {user_request.training} finalizou um projeto no campus. Mais uma conquista."
+                AtividadeAlunos.objects.create(
+                    titulo=titulo,
+                    descricao=descricao_project,
+                    nome_projeto=project_name,
+                    project_options=project_options,
+                    add_for=user_request,
+                    type_publication=type_publication
+                )
 
         else:
             return JsonResponse({'mensagem': 'Algo invalido'}, status=502)

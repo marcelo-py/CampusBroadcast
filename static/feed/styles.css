@@ -218,7 +218,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.568);
+    background: rgba(0, 0, 0, 0.774);
     justify-content: center;
     align-items: center;
 }
@@ -233,10 +233,6 @@
     max-width: 100%;
 }
 
-.post-modal h3 {
-    font-weight: normal;
-    font-size: 18px;
-}
 
 .post-modal form {
     display: flex;
@@ -248,9 +244,56 @@
     display: none;
 }
 
+.form-fields .fieldsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-fields .fieldsContainer>div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-fields .project_options {
+    display: flex;
+    gap: 17px;
+}
+.form-fields .project_options div{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.form-fields .fieldsContainer>div label {
+    font-weight: bold;
+    color: #525b70;
+}
+
+.form-fields .fieldsContainer>div input,
+textarea {
+    font-size: 15px;
+    color: #343B49;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #525b70b4;
+}
+
+.form-fields .fieldsContainer>div textarea {
+    resize: none;
+    height: 75px;
+}
+.post-modal form button{
+    padding: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #343B49;
+    cursor: pointer;
+}
 .post-modal form input[type="radio"] {
     width: 20px;
     height: 20px;
+    cursor: pointer;
 }
 
 .post-modal .type_publication {
