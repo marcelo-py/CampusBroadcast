@@ -231,13 +231,14 @@
     gap: 24px;
     width: 613px;
     max-width: 100%;
+    border-radius: 10px;
 }
 
 
 .post-modal form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
 }
 
 .form-fields {
