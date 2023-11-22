@@ -1,3 +1,39 @@
 .errorlist li{
     color: rgb(255, 34, 34);
 }
+
+form{
+    width: 600px;
+    max-width: 100%;
+    background-color: rgba(243, 243, 243, 0.322);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 60px auto;
+    padding: 20px;
+    border: 1px solid rgba(37, 27, 11, 0.205);
+}
+
+form > div{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+form > div label{
+    font-weight: bold;
+
+}
+
+form > div input, button{
+    font-size: 17px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid rgba(141, 141, 141, 0.507);
+}
+
+form > button{
+    font-weight: bold;
+    cursor: pointer;
+}
